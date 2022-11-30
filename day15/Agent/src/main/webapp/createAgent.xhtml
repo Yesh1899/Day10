@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<center>
+   		<h2><h:outputText value="Agent_Create"/></h2>
+   		<h:form>
+Agent Name:
+<h:inputText value="#{agent.name}"/><br/><br/>
+Agent City:
+<h:inputText value="#{agent.city}"/><br/><br/>
+Agent Gender:
+<h:selectOneRadio required="true" value="#{agent.gender}"><br/><br/>
+   			<f:selectItem itemValue="MALE" itemLabel="Male" />
+   			<f:selectItem itemValue="FEMALE" itemLabel="Female" />
+		</h:selectOneRadio><br/><br/>
+Agent maritalStatus:
+<h:selectOneRadio id="maritalStatus" required="true" value="#{agent.maritalStatus}"><br/><br/>
+   			<f:selectItem itemValue="0" itemLabel="NO" />
+   			<f:selectItem itemValue="1" itemLabel="Yes" />
+		</h:selectOneRadio><br/><br/>
+Preimium
+<h:inputText value="#{agent.primium}"/><br/><br/>
+<br/><br/>
+<h:commandButton value="Save" action="#{agentDAO.addAgent(agent)}"/>
+			<h:link outcome="AgentShow" value="show Agent Record"/>
+
+</h:form>
+   	</center>
+
+</h:body>
+</html>

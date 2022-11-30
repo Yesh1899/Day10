@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+<center>
+<h2><h:outputText value="Agent Record"/></h2>
+<h:form>
+   <h:dataTable value="#{agentDAO.showAgent()}" var="a" border="3">
+   		<h:column>
+   			<f:facet name="header">Agent No.</f:facet>
+   			<h:outputText value="#{a.agentId}"/>
+  		</h:column>
+  		 <h:column>
+   			<f:facet name="header">Agent Name.</f:facet>
+   			<h:outputText value="#{a.name}"/>
+  		 </h:column>
+   		 <h:column>
+   		<f:facet name="header">Agent City</f:facet>
+   			<h:outputText value="#{a.city}"/>
+  		 </h:column>
+  		 <h:column>
+   			<f:facet name="header">Agent Gender</f:facet>
+   			<h:outputText value="#{a.gender}"/>
+  		 </h:column>
+  		 <h:column>
+   			<f:facet name="header">Agent MaritalStatus</f:facet>
+   			<h:outputText value="#{a.maritalStatus}"/>
+  		 </h:column>
+  		 <h:column>
+   			<f:facet name="header">Agent primium</f:facet>
+   			<h:outputText value="#{a.primium}"/>
+  		 </h:column>
+  		 <h:column>
+   			<f:facet name="header">Update</f:facet>
+   			 <h:commandButton value="Update" action="#{agentDAO.searchAgent(a.agentId)}"/>
+  		 </h:column>
+  		 <h:column>
+   			<f:facet name="header">Delete</f:facet>
+   			 <h:commandButton value="Delete" action="#{agentDAO.deleteAgent(a.agentId)}"/>
+  		 </h:column>
+       </h:dataTable>
+      	 <h:commandButton value="Create"  action="createAgent.xhtml?faces-redirect=true"/>
+        </h:form>
+
+
+</center>
+</h:body>
+	
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<h:form>
+		Employ No :
+		<h:inputText id="empno" required="true" label="Employ No" value="#{employ.empno}" >
+		<f:validateRequired/> 
+		<f:validateLongRange maximum="100" minimum="1"/>
+		</h:inputText>
+			<h:message for="empno" style="color:red"/>
+			<br/><br/>	
+			
+		Employ Name :
+		
+		<h:inputText id="name" value="#{employ.name}" required="true" label="Employ Name">
+		<f:validateRequired/>
+		<f:validateLength minimum="5" maximum="10" />
+		</h:inputText>	
+		<h:message for="name" style="color:red" />
+		<br/><br/>
+		
+		Department :
+		<h:selectOneMenu id="dept" value="#{employ.dept}" required="true" label="Department">
+		<f:selectItem itemValue="Java" itemLabel="java"/>
+		<f:selectItem itemValue="DotNet" itemLabel="dotnet"/>
+		<f:selectItem itemValue="Angular" itemLabel="Angular"/>
+		<f:validateRequired/>
+		</h:selectOneMenu>
+		<h:message for="dept" style="color:red"></h:message>
+		<br></br>
+				<br></br>
+		
+		Gender:
+		<h:selectOneMenu id="gender" value="#{employ.gender}" required="true" label="Gender">
+		<f:selectItem itemValue="Male" itemLabel="Male"/>
+		<f:selectItem itemValue="Female" itemLabel="Female"/>
+		<f:validateRequired/>
+		</h:selectOneMenu>
+		<h:message for="gender" style="color:red"></h:message>
+			<br></br>
+					<br></br>
+			
+			Designation:
+		<h:selectOneMenu id="desig" value="#{employ.desig}" required="true" label="Designation">
+		<f:selectItem itemValue="Programmer" itemLabel="Programmer"/>
+		<f:selectItem itemValue="Manager" itemLabel="Manager"/>
+		<f:selectItem itemValue="Teamlead" itemLabel="Teamlead"/>
+		<f:validateRequired/>
+		</h:selectOneMenu>
+		<h:message for="desig" style="color:red"></h:message>
+		
+			Basic :
+		 <h:inputText id="basic" required="true" label="Basic" value="#{employ.basic}" >
+		<f:validateLongRange maximum="10000" minimum="500"/>
+	   <f:validateRequired/> 
+	   </h:inputText>
+		<br></br>
+		<br></br>
+		<h:commandButton value="submit" action="showemploy" />
+	</h:form>
+</h:body>
+</html>
